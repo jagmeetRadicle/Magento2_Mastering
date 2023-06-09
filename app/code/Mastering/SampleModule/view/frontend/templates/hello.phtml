@@ -1,0 +1,41 @@
+<?php
+/** @var \Mastering\SampleModule\Block\Hello $block  */
+?>
+<div>
+    <div style = "width:50%;float: right">
+    <h3><?php echo $block->getMain()->getPageName()->getName()?></h3>
+    <h3><?php echo $block->getMain()->getId() ?></h3>
+    <h3><?php echo $block->getMain()->getInjectable()->getId() ?></h3>
+    <h3><?php echo $block->getMain()->getNonInjectable()->getId() ?></h3>
+    <h3><?php echo $block->getMain()->getUtil()->getName() ?></h3>
+    <h3><?php echo $block->getMain()->getHeavyOperation()->getName() ?></h3>
+    <h3><?php echo $block->getMain()->getDefaultName()->getName() ?></h3>
+    <h3><?php echo $block->getMain()->getMethodInjection()?></h3>
+    </div>
+    <div style = "width:50%">
+<!--    --><?php //=
+//    $this->getLayout()
+//        ->createBlock('Magento\Cms\Block\Block')
+//        ->setBlockId('layout_block')
+//        ->toHtml();
+//    ?>
+    <?= $block->getChildHtml("layout_block")?>
+    </div>
+</div>
+<table>
+    <tr>
+    <th>ID</th>
+    <th>ITEM NAME</th>
+    <th>ITEM CONTENT</th>
+    <th>CREATED_AT</th>
+    </tr>
+<?php foreach( $block->getItems() as $item): ?>
+   <tr>
+       <td><?php echo $item->getId();?></td>
+        <td><?php echo $item->getName();?></td>
+        <td><?php echo $item->getContent();?></td>
+        <td><?php echo $item->getCreated_at();?></td>
+   </tr>
+<?php endforeach; ?>
+</table>
+

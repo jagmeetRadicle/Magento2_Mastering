@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="masteringAddItems" xsi:type="object">Mastering\SampleModule\Console\Command\AddItems</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for = "Mastering\SampleModule\Api\Data\ItemInterface" type = "Mastering\SampleModule\Model\Item"></preference>
+    <preference for = "Mastering\SampleModule\Api\ItemRepositoryInterface" type = "Mastering\SampleModule\Model\ItemRepository"></preference>
+<!--    preference links between interfaces and classes and provide class objects when creating interfaces object.-->
+
+    <type name="Mastering\SampleModule\Model\Main">
+        <arguments>
+            <argument name = "util" xsi:type="object">Mastering\SampleModule\Model\Util</argument>
+            <argument name = "heavyOperation" xsi:type="object">Mastering\SampleModule\Model\HeavyOperation\Proxy</argument>
+            <argument name = "data" xsi:type="array">
+                <item name = "id" xsi:type="string">434354354353534553453453454353436456</item>
+            </argument>
+            <argument name = "defaultName" xsi:type="object">UpperCaseName</argument>
+        </arguments>
+    </type>
+
+    <preference for = "Mastering\SampleModule\Model\InjectableInterface" type = "Mastering\SampleModule\Model\Injectable"></preference>
+    <virtualType name = "UpperCaseName" type = "Mastering\SampleModule\Model\VirtualType\DefaultName">
+        <arguments>
+            <argument name = "name" xsi:type="object">Mastering\SampleModule\Model\VirtualType\UpperCaseName</argument>
+        </arguments>
+    </virtualType>
+
+
+    <type name = "Mastering\SampleModule\Model\Plugins\PageName">
+        <plugin name = "TestPagePlugin" type = "Mastering\SampleModule\Model\Plugins\PagePlugin"  sortOrder="1" disabled="false" />
+    </type>
+</config>

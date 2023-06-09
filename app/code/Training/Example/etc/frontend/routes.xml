@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <!--Use router 'standard' for frontend route-->
+    <router id="standard">
+        <route frontName="test" id="test">
+            <!--The module which this route match to-->
+            <module name="Training_Example"/>
+        </route>
+<!--        Define a custom route with id and frontName-->
+        <route frontName="example" id="example">
+            <!--The module which this route match to-->
+            <module name="Training_Example"/>
+        </route>
+
+    </router>
+</config>
