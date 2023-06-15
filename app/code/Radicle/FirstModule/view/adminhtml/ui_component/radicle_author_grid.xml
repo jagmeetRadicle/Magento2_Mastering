@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">radicle_author_grid.radicle_author_grid_data_source</item>
+            <item name="deps" xsi:type="string">radicle_author_grid.radicle_author_grid_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">radicle_author_columns</item>
+    </argument>
+    <dataSource name="mastering_items_grid_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
+            <argument name="name" xsi:type="string">radicle_author_grid_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">id</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <exportButton name = "export_button"/>
+        <filterSearch name = "fulltext"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="radicle_author_columns">
+        <selectionsColumn name = "ids">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name = "indexField" xsi:type="string">id</item>
+                </item>
+            </argument>
+        </selectionsColumn>
+        <column name="id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">ID</label>
+            </settings>
+        </column>
+        <column name="author_name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name = "filter" xsi:type="string">text</item>
+                    <item name = "label" xsi:type="string" translate = "true">Name</item>
+                </item>
+            </argument>
+        </column>
+        <column name="email">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name = "filter" xsi:type="string">text</item>
+                    <item name = "label" xsi:type="string" translate = "true">Email</item>
+                </item>
+            </argument>
+        </column>
+        <column name="description">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Description</label>
+            </settings>
+        </column>
+        <column name="store_id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Store ID</label>
+            </settings>
+        </column>
+        <column name="time_occured" component="Magento_Ui/js/grid/columns/date">
+            <settings>
+                <filter>dateRange</filter>
+                <dataType>date</dataType>
+                <label translate="true">Time Occured</label>
+            </settings>
+        </column>
+    </columns>
+</listing>

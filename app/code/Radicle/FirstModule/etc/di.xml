@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name = "Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name = "collections" xsi:type="array">
+                <item name = "radicle_author_grid_data_source" xsi:type="string">Radicle\FirstModule\Model\ResourceModel\Author\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Radicle\FirstModule\Model\ResourceModel\Author\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">first_table</argument>
+            <argument name="resourceModel" xsi:type="string">Radicle\FirstModule\Model\ResourceModel\Author</argument>
+        </arguments>
+    </virtualType>
+</config>

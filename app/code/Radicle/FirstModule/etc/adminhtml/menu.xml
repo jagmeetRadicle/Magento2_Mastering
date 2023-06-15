@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <menu>
+        <add
+            id="Radicle_FirstModule::radicle"
+            title="Radicle"
+            module="Radicle_FirstModule"
+            sortOrder="904"
+            resource="Radicle_FirstModule::radicle"
+            translate = "title"
+            action = "helloworld/index/index"
+        />
+    </menu>
+</config>
