@@ -1,0 +1,65 @@
+<?php
+/* @var Radicle\FirstModule\Block\Hello $block */
+$authors =  $block->getAllAuthors();
+?>
+<form method = "post" name = "myForm" action = "<?php $block->getAddAuthorPostUrl() ?>">
+    <fieldset>
+        <div>
+            <label for="Author"><?= __("Author") ?></label>
+            <input type = "text" name = "author_name" id="author_name" required/>
+        </div>
+        <div>
+            <label for="email"><?= __("Email") ?></label>
+            <input type = "email" name = "email" id="email" required/>
+        </div>
+        <div>
+            <label for="description"><?= __("Description") ?></label>
+            <input type = "text" name = "description" id="description" required/>
+        </div>
+        <div>
+            <label for="store"><?= __("Store ID") ?></label>
+            <input type = "number" name = "store_id" id="store_id" required/>
+        </div>
+        <div>
+            <label for="Time"><?= __("Time occured") ?></label>
+            <input type = "datetime-local" name = "time_occured" id="time_occured" required/>
+        </div>
+        <input type="submit" value="<?= __("Add Author") ?>" />
+    </fieldset>
+</form>
+<hr/>
+
+<?php if(count($authors) > 0) : ?>
+<table border="1">
+    <tr>
+        <th><?= __("ID") ?></th>
+        <th><?= __("Author") ?>
+         <th><?= __("Email") ?></th>
+        <th><?= __("Description") ?></th>
+        <th><?= __("Store Id") ?></th>
+        <th><?= __("Time") ?></th>
+    </tr>
+    <?php foreach ($authors as $author): ?>
+        <tr>
+            <td><?= $author->getId() ?>
+            <td><?= $author->getAuthor_name() ?>
+            <td><?= $author->getEmail() ?>
+            <td><?= $author->getDescription() ?>
+            <td><?= $author->getStore_id() ?>
+            <td><?= $author->getTime_occured() ?>
+        </tr>
+    <?php endforeach; ?>
+</table>
+<?php else: ?>
+    <h1><?= __("You have no authors yet :(") ?></h1>
+<?php endif; ?>
+
+<!--<script>-->
+<!--    if ( window.history.replaceState ) {-->
+<!--    window.history.replaceState( null, null, window.location.href );-->
+<!--    }-->
+<!--</script>-->
+
+
+
+

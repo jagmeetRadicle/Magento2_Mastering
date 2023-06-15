@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+   <table name="first_table" resource="default" engine="innodb" comment="Radicle FirstModule">
+      <column xsi:type="smallint" name="id"  unsigned="false" nullable="false" identity="true" comment="ID" />
+      <column xsi:type="varchar" name="author_name" nullable="false" length="20" comment="Name" />
+      <column xsi:type="varchar" name="email" nullable="false" length="20" comment="Email" />
+      <column xsi:type="varchar" name="description" nullable="false" length="255" comment="Description" />
+       <column xsi:type="smallint" name="store_id" nullable="false" unsigned="true"  comment="Store Id"/>
+      <column xsi:type="timestamp" name="time_occured" comment="Timestamp"/>
+
+      <constraint xsi:type="primary" referenceId="PRIMARY">
+         <column name="id" />
+      </constraint>
+       <constraint xsi:type="foreign" referenceId="FIRST_TABLE_STORE_ID_STORE_STORE_ID" table="first_table"
+                   column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
+   </table>
+</schema>

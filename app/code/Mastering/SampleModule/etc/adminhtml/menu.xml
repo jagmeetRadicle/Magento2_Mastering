@@ -8,7 +8,7 @@
             sortOrder="900"
             resource="Mastering_SampleModule::mastering"
             translate = "title"
-            action = "mastering"
+            action = "mastering/index/index"
         />
     </menu>
 </config>

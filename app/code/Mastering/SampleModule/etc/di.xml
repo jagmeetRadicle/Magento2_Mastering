@@ -33,4 +33,20 @@
     <type name = "Mastering\SampleModule\Model\Plugins\PageName">
         <plugin name = "TestPagePlugin" type = "Mastering\SampleModule\Model\Plugins\PagePlugin"  sortOrder="1" disabled="false" />
     </type>
+
+
+    <type name = "Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name = "collections" xsi:type="array">
+                <item name = "mastering_items_grid_data_source" xsi:type="string">Mastering\SampleModule\Model\ResourceModel\Item\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Mastering\SampleModule\Model\ResourceModel\Item\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">mastering_sample_item</argument>
+            <argument name="resourceModel" xsi:type="string">Mastering\SampleModule\Model\ResourceModel\Item</argument>
+        </arguments>
+    </virtualType>
 </config>
