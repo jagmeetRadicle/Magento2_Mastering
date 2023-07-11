@@ -49,4 +49,15 @@
             <argument name="resourceModel" xsi:type="string">Mastering\SampleModule\Model\ResourceModel\Item</argument>
         </arguments>
     </virtualType>
+
+
+<!--To show data into sales order grid bax_tax_amount column -->
+    <virtualType name = "Magento\Sales\Model\ResourceModel\Order\Grid">
+        <arguments>
+            <argument name = "columns" xsi:type="array">
+                <item name = "base_tax_amount" xsi:type="string">sales_order_grid.base_tax_amount</item>
+            </argument>
+        </arguments>
+
+    </virtualType>
 </config>

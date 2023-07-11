@@ -1,0 +1,35 @@
+<h1>KNOCKOUTJS EXAMPLE!!!!!</h1>
+<div id="custom-component" data-bind="scope:'customcomponent'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type="text/x-magento-init">
+    {
+        "#custom-component": {
+            "Magento_Ui/js/core/app": {
+               "components": {
+                    "customcomponent": {
+                        "component": "Radicle_FirstModule/js/custom-component"
+                    }
+                }
+            }
+        }
+    }
+    </script>
+</div>
+
+
+<div id = "custom-clock" data-bind="scope:'customclock'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type = "text/x-magento-init">
+    {
+        "#custom-clock": {
+            "Magento_Ui/js/core/app": {
+               "components": {
+                    "customclock": {
+                        "component": "Radicle_FirstModule/js/custom-clock"
+                    }
+                }
+            }
+        }
+    }
+    </script>
+</div>

@@ -21,7 +21,17 @@ class UpgradeSchema implements UpgradeSchemaInterface{
                 ]
             );
 
-
+            //sales_order_grid table new coloumn add.
+            if(version_compare($context->getVersion(),"1.0.5","<")){
+                $setup->getConnection()->addColumn(
+                    $setup->getTable("sales_order_grid"),
+                    "base_tax_amount",
+                    [
+                        "type" => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
+                        "comment" => "Base Tax Amount"
+                    ]
+                );
+            }
 
         $setup->endSetup();
     }
