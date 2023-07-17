@@ -115,5 +115,11 @@
                 <label translate="true">Time Occured</label>
             </settings>
         </column>
+        <column name="Customer Id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Customer Id</label>
+            </settings>
+        </column>
     </columns>
 </listing>

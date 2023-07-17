@@ -38,6 +38,7 @@ $authors =  $block->getAllAuthors();
         <th><?= __("Description") ?></th>
         <th><?= __("Store Id") ?></th>
         <th><?= __("Time") ?></th>
+        <th><?= __("Customer Id") ?></th>
     </tr>
     <?php foreach ($authors as $author): ?>
         <tr>
@@ -47,6 +48,7 @@ $authors =  $block->getAllAuthors();
             <td><?= $author->getDescription() ?>
             <td><?= $author->getStore_id() ?>
             <td><?= $author->getTime_occured() ?>
+            <td><?= $author->getCustomerId() ?>
         </tr>
     <?php endforeach; ?>
 </table>
