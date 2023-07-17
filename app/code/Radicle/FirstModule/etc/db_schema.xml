@@ -10,7 +10,7 @@
       <column xsi:type="timestamp" name="time_occured" comment="Timestamp"/>
 
       <constraint xsi:type="primary" referenceId="PRIMARY">
-         <column name="id" />
+         <column name="id"/>
       </constraint>
        <constraint xsi:type="foreign" referenceId="FIRST_TABLE_STORE_ID_STORE_STORE_ID" table="first_table"
                    column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>

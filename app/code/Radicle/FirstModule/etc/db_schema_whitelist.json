@@ -1,0 +1,16 @@
+{
+    "first_table": {
+        "column": {
+            "id": true,
+            "author_name": true,
+            "email": true,
+            "description": true,
+            "store_id": true,
+            "time_occured": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FIRST_TABLE_STORE_ID_STORE_STORE_ID": true
+        }
+    }
+}
