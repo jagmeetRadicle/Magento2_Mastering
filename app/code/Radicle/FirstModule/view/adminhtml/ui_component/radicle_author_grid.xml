@@ -37,6 +37,28 @@
         </argument>
     </dataSource>
     <listingToolbar name="listing_top">
+        <massaction name="listing_massaction">
+            <argument name="data" xsi:type="array">
+                <item name="data" xsi:type="array">
+                    <item name="selectProvider" xsi:type="string">radicle_author_grid.radicle_author_grid_data_source</item>
+                    <item name="displayArea" xsi:type="string">bottom</item>
+                    <item name="indexField" xsi:type="string">id</item>
+                </item>
+            </argument>
+            <action name="delete">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">delete</item>
+                        <item name="label" xsi:type="string" translate="true">Mass Delete</item>
+                        <item name="url" xsi:type="url" path="helloworld/author/massDelete"/>
+                        <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Delete Authors</item>
+                            <item name="message" xsi:type="string" translate="true">Are you sure you want to delete the selected authors</item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
+        </massaction>
         <bookmark name="bookmarks"/>
         <columnsControls name="columns_controls"/>
         <exportButton name = "export_button"/>
