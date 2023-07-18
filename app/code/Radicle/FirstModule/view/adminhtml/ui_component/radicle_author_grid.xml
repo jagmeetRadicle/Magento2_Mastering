@@ -127,7 +127,7 @@
                     <item name="resizeEnabled" xsi:type="boolean">false</item>
                     <item name="resizeDefaultWidth" xsi:type="string">107</item>
                     <item name="indexField" xsi:type="string">id</item>
-                    <item name="viewUrlPath" xsi:type="string">helloworld/author/delete</item>
+                    <item name="viewUrlPath" xsi:type="string">helloworld/author/</item>
                     <item name="urlEntityParamName" xsi:type="string">id</item>
                 </item>
             </argument>

@@ -41,7 +41,7 @@ class Actions extends Column
                     $item[$this->getData('name')] = [
                         'view' => [
                             'href' => $this->urlBuilder->getUrl(
-                                $viewUrlPath,
+                                $viewUrlPath."delete",
                                 [
                                     $urlEntityParamName => $item['id'],
                                 ]
@@ -49,7 +49,7 @@ class Actions extends Column
                             'label' => __('Delete'),
                         ],[
                             'href' => $this->urlBuilder->getUrl(
-                                $viewUrlPath,
+                                $viewUrlPath."editform" ,
                                 [
                                     $urlEntityParamName => $item['id'],
                                 ]
@@ -62,33 +62,4 @@ class Actions extends Column
         }
         return $dataSource;
     }
-
-
-
-
-
-
-
-
-
-//    public function prepareDataSource(array $dataSource)
-//    {
-//        if (isset($dataSource['data']['items'])) {
-//            foreach ($dataSource['data']['items'] as & $item) {
-//                // here we can also use the data from $item to configure some parameters of an action URL
-//                $id = $item["id"];
-//                $item[$this->getData('name')] = [
-//                    'edit' => [
-//                        'href' => 'edit/'.$id,
-//                        'label' => __('Edit')
-//                    ],
-//                    'delete' => [
-//                        'href' => '*/helloworld/author/delete/'.$id,
-//                        'label' => __('Delete')
-//                    ],
-//                ];
-//            }
-//        }
-//        return $dataSource;
-//    }
 }

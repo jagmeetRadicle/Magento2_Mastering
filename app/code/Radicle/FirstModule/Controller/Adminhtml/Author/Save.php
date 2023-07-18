@@ -28,6 +28,7 @@ class Save extends \Magento\Backend\App\Action
             try {
 
                 $authorModel = $this->authorFactory->create();
+                $authorModel = $authorModel->load($data["id"]);
 //                $authorModel->setData($data)->save();
 
                 $authorModel->setAuthorName($data["author_name"]);
