@@ -123,5 +123,13 @@
                 </item>
             </argument>
         </field>
+        <field formElement="input" name="customer_name">
+            <settings>
+                <label translate="true">Customer Name</label>
+                <dataScope>customer_name</dataScope>
+                <elementTmpl>ui/form/element/text</elementTmpl>
+            </settings>
+        </field>
+
     </fieldset>
 </form>

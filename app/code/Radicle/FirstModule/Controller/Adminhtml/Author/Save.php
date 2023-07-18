@@ -28,9 +28,10 @@ class Save extends \Magento\Backend\App\Action
             try {
 
                 $authorModel = $this->authorFactory->create();
-                $authorModel = $authorModel->load($data["id"]);
+                if(array_key_exists("id", $data) ){
+                    $authorModel = $authorModel->load($data["id"]);
+                }
 //                $authorModel->setData($data)->save();
-
                 $authorModel->setAuthorName($data["author_name"]);
                 $authorModel->setEmail($data["email"]);
                 $authorModel->setDescription($data["description"]);
