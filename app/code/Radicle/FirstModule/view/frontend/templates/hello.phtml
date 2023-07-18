@@ -2,6 +2,7 @@
 /* @var Radicle\FirstModule\Block\Hello $block */
 $authors =  $block->getAllAuthors();
 ?>
+
 <form method = "post" name = "myForm" action = "<?php $block->getAddAuthorPostUrl() ?>">
     <fieldset>
         <div>
@@ -48,7 +49,7 @@ $authors =  $block->getAllAuthors();
             <td><?= $author->getDescription() ?>
             <td><?= $author->getStore_id() ?>
             <td><?= $author->getTime_occured() ?>
-            <td><?= $author->getCustomerId() ?>
+            <td><?= $author->getData("Customer Id") ?>
         </tr>
     <?php endforeach; ?>
 </table>

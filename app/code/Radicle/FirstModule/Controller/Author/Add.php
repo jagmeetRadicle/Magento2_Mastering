@@ -3,25 +3,24 @@ namespace Radicle\FirstModule\Controller\Author;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
-use Radicle\FirstModule\Model\Author;
+use Radicle\FirstModule\Model\AuthorFactory;
 use Radicle\FirstModule\Model\ResourceModel\Author as AuthorResource;
 
 //specific work related action classes
 class Add extends Action{
 
     private $author;
-    private $authorResource;
     private $pageFactory;
 
     private $customerModel;
+    private $redirect;
 
-    public function __construct(Context $context,Author $author,AuthorResource $authorResource, \Magento\Framework\View\Result\PageFactory $pageFactory,\Magento\Customer\Model\Session $customer)
+    public function __construct(Context $context,AuthorFactory $author,\Magento\Framework\View\Result\PageFactory $pageFactory,\Magento\Customer\Model\Session $customer)
     {
-        parent::__construct($context);
         $this->author = $author;   //model(getters and setters method for accesing db data)
-        $this->authorResource = $authorResource; //resourcemodel(for crud operations like save)
         $this->pageFactory = $pageFactory;
         $this->customerModel = $customer;
+        parent::__construct($context);
     }
 
     public function getLogginedCustomerId()
@@ -36,31 +35,31 @@ class Add extends Action{
     public function execute()
     {
 //        post data
-        $data = $this->getRequest()->getParams();
-
-        if(count($data) > 0 ){
-            //customer data
+        $data =(array)$this->getRequest()->getParams();
         $customerId = $this->getLogginedCustomerId();
-        $data['Customer Id'] = $customerId;
 
-            echo json_encode($data);
-            echo "Data Saved Successfully";
+        $this->redirect = $this->resultRedirectFactory->create();
+        if(!$customerId){
+            $this->redirect->setPath('customer/account/login');
+            return $this->redirect;
         }
 
-        $authorModel = $this->author;
-        $authorModel->setData($data);
+        if(count($data) > 0 ) {
+            //customer data
+            $data['Customer Id'] = $customerId;
+            $authorModel = $this->author->create();
+            $authorModel->setData($data);
 
-        try{
-            $this->authorResource->save($authorModel);
-            $this->messageManager->addSuccessMessage("Author saved successfully");
-        }catch (\Exception $exception){
-            $this->messageManager->addErrorMessage("Error while saving Author");
+            try {
+                $authorModel->save();
+                $this->messageManager->addSuccessMessage("Author saved successfully");
+            } catch (\Exception $exception) {
+                $this->messageManager->addErrorMessage("Error while saving Author ".$exception->getMessage());
+            }
         }
-
         if(count($data) > 0){
-            $redirect = $this->resultRedirectFactory->create();
-            $redirect->setPath('helloworld');
-            return $redirect;   //return response
+            $this->redirect->setPath('helloworld/author/add');
+            return $this->redirect;   //return response
         }else{
             $page = $this->pageFactory->create();
             return $page;
