@@ -131,6 +131,32 @@ class ProductAttribute implements DataPatchInterface {
             'group'         => 'General',
             'visible_on_front' => true,
         ]);
+
+        $eavSetup->addAttribute(
+            Product::ENTITY,
+            'custom_cms_attribute',
+            [
+                'type' => 'text',
+                'backend' => '',
+                'frontend' => '',
+                'label' => 'Custom Cms Attribute',
+                'input' => 'select',
+                'class' => '',
+                'source' => 'Radicle\FirstModule\Model\Config\Source\CustomCmsAttributeOptions',
+                'global' => ScopedAttributeInterface::SCOPE_GLOBAL,
+                'visible' => true,
+                'required' => true,
+                'user_defined' => false,
+                'default' => '',
+                'searchable' => false,
+                'filterable' => false,
+                'comparable' => false,
+                'visible_on_front' => true,
+                'used_in_product_listing' => true,
+                'unique' => false,
+                'apply_to' => ''
+            ]
+        );
     }
 
     /**
@@ -148,6 +174,6 @@ class ProductAttribute implements DataPatchInterface {
     }
     public static function getVersion()
     {
-        return '2.4.2';
+        return '2.4.3';
     }
 }

@@ -1,0 +1,14 @@
+
+<?php
+/** @var Radicle\FirstModule\Block\Cms $block **/
+
+//$customBlock = $block->getData("custom_cms_attribute");
+//echo $customBlock;
+$currentProduct = $block->getCurrentProduct();
+$cms_Identifier = $currentProduct->getData("custom_cms_attribute");
+echo $this->getLayout()
+    ->createBlock('Magento\Cms\Block\Block')
+    ->setBlockId($cms_Identifier)
+    ->toHtml();
+?>
+<h1><?= $currentProduct->getData("custom_cms_attribute") ?></h1>
