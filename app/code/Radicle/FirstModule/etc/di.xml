@@ -14,4 +14,12 @@
             <argument name="resourceModel" xsi:type="string">Radicle\FirstModule\Model\ResourceModel\Author</argument>
         </arguments>
     </virtualType>
+
+    <type name="Magento\Customer\Block\Form\Register">
+        <plugin name="set_default_values" type="Radicle\FirstModule\Model\SetDefaultFormValue" sortOrder="1" />
+    </type>
+
+    <type name="Magento\Checkout\Controller\Cart\Add">
+        <plugin name="change_success_message_cart" type="Radicle\FirstModule\Model\ChangeSuccessMessage" sortOrder="10"/>
+    </type>
 </config>
