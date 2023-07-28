@@ -4,7 +4,6 @@ namespace Radicle\FirstModule\Controller\Author;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Radicle\FirstModule\Model\AuthorFactory;
-use Radicle\FirstModule\Model\ResourceModel\Author as AuthorResource;
 
 //specific work related action classes
 class Add extends Action{

@@ -3,7 +3,17 @@
 /**
  * @var Training\Example\Block\Display $block
  */
-//echo("jagm");
-//die();
- echo $block->test();
+
 ?>
+<?= $block->escapeHtml($block->test(),["p"])?>
+<?= "next line" ?>
+<?= $block->escapeHtml($block->test(),[])?>
+<?= $block->escapeHtml($block->test()); ?>
+<?php //= $block->test(); ?>
+
+
+<style type="text/css">
+    .name{
+        color : #00ff80;
+    }
+</style>

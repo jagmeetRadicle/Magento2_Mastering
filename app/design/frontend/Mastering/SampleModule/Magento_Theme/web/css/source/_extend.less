@@ -1,0 +1,36 @@
+
+@custom_color_header : #EEA7EE;
+@header__background-color : @custom_color_header;
+@header-icons-color : @color-white;
+@header-icons-color-hover : @color-white;
+
+& when(@media-common = true){
+    .block-search{
+        .label:before{
+            .lib-css(color,@color-blue1);
+            .lib-css(background-color,@color-red10);
+        }
+    }
+
+
+    .minicart-wrapper{
+        .action{
+            &.showcart{
+                &:before{
+                    .lib-css(color,@color-white);
+                    .lib-css(background-color,@color-red10);
+                }
+            }
+        }
+    }
+    .name{
+        .lib-css(color,@color-white);
+        margin-left: 50px;
+        font-size: 23px;
+        display: inline;
+    }
+}
+
+
+
+

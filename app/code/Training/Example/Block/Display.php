@@ -9,8 +9,6 @@ class Display extends \Magento\Framework\View\Element\Template
 
     public function test()
     {
-//        echo("nhi cahl rha");
-//        die();
-        return ("WORKING|||||||");
+        return ("<p class='name' >Working fine..</p>");
     }
 }

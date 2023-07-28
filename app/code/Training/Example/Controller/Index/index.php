@@ -15,7 +15,6 @@ class index implements ActionInterface {
     }
     public function execute()
     {
-
         $data = ['firstname'=>'jagmeet','lastname' => 'singh' ];
         $result = $this->jsonResultFactory ->create();
         $result->setData($data);
