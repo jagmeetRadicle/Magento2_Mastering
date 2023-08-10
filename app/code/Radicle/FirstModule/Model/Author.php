@@ -15,4 +15,12 @@ class Author extends AbstractModel
     {
         $this->_init(ResourceModel::class);
     }
+
+    public function getCustomerId(){
+        return $this->getData("Customer Id");
+    }
+
+    public function setCustomerId(int $id){
+        $this->setData("Customer Id",$id);
+    }
 }

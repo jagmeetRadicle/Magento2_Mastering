@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "19d57d808ce1a5956901ec12ac421177",
+    "content-hash": "3b24e944c846612f4b4fe3e4bb55cd64",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -17422,6 +17422,90 @@
             "time": "2023-02-06T13:44:46+00:00"
         },
         {
+            "name": "msp/common",
+            "version": "0.1.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/magespecialist/m2-MSP_Common.git",
+                "reference": "c05b806a925e9cf56e91af3bb33e393d48f5b136"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/magespecialist/m2-MSP_Common/zipball/c05b806a925e9cf56e91af3bb33e393d48f5b136",
+                "reference": "c05b806a925e9cf56e91af3bb33e393d48f5b136",
+                "shasum": ""
+            },
+            "require": {
+                "magento/magento-composer-installer": "*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "MSP\\Common\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "OSL-3.0"
+            ],
+            "support": {
+                "issues": "https://github.com/magespecialist/m2-MSP_Common/issues",
+                "source": "https://github.com/magespecialist/m2-MSP_Common/tree/master"
+            },
+            "time": "2019-12-03T09:01:47+00:00"
+        },
+        {
+            "name": "msp/devtools",
+            "version": "1.2.17",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/magespecialist/m2-MSP_DevTools.git",
+                "reference": "306de1b76aecd8fd66bf32139dce2c09386c472c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/magespecialist/m2-MSP_DevTools/zipball/306de1b76aecd8fd66bf32139dce2c09386c472c",
+                "reference": "306de1b76aecd8fd66bf32139dce2c09386c472c",
+                "shasum": ""
+            },
+            "require": {
+                "magento/magento-composer-installer": "*",
+                "msp/common": "*",
+                "php": "^7.4|^8.1"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "MSP\\DevTools\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "OSL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Riccardo Tempesta",
+                    "email": "riccardo.tempesta@magespecialist.it"
+                },
+                {
+                    "name": "Lorenzo Stramaccia",
+                    "email": "lorenzo.stramaccia@magespecialist.it"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/magespecialist/m2-MSP_DevTools/issues",
+                "source": "https://github.com/magespecialist/m2-MSP_DevTools/tree/1.2.17"
+            },
+            "time": "2023-03-15T10:33:59+00:00"
+        },
+        {
             "name": "mtdowling/jmespath.php",
             "version": "2.6.1",
             "source": {
@@ -26258,5 +26342,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

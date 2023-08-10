@@ -22,6 +22,15 @@ HTML;
     http_response_code(500);
     exit(1);
 }
+
+$_SERVER['MAGE_PROFILER'] = [
+    'drivers' => [
+        [
+            'output'=>'MSP\DevTools\Profiler\Driver\Standard\Output\DevTools'
+        ]
+    ]
+];
+
 $params = $_SERVER;
 $domainName = $_SERVER['SERVER_NAME'];
 switch ($domainName) {

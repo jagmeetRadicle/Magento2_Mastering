@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <!-- test api Group -->
+    <route url="/V1/radicle" method="GET">
+        <service class="Radicle\FirstModule\Api\AuthorRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/radicle-post" method="POST">
+    <service class="Radicle\FirstModule\Api\AuthorRepositoryInterface" method="setList"/>
+    <resources>
+        <resource ref="anonymous"/>
+    </resources>
+</route>
+
+</routes>
