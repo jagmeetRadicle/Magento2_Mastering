@@ -31,7 +31,7 @@ interface AuthorInterface {
     public function getStoreId();
 
     /**
-     * @return timestamp
+     * @return mixed
      */
     public function getTimeOccured();
 

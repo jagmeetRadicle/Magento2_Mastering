@@ -3,6 +3,8 @@
 namespace Mastering\SampleModule\Api\Data;
 
 //layer of abstraction for data availabel for public as webapi (directly db ya model access nhi krva skte).
+use phpseclib3\File\ASN1\Maps\Time;
+
 interface ItemInterface {
     /**
      * @return int
@@ -20,7 +22,7 @@ interface ItemInterface {
     public function getContent();
 
     /**
-     * @return timestamp
+     * @return mixed
      */
     public function getCreatedAt();
 }
