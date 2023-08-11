@@ -72,56 +72,6 @@ class Author implements ResolverInterface
     }
 
     /**
-     * {@inheritdoc}
-     */
-//    public function resolve(
-//        Field $field,
-//              $context,
-//        ResolveInfo $info,
-//        array $value = null,
-//        array $args = null
-//    ) : Value {
-//        if ((!$context->getUserId()) || $context->getUserType() == UserContextInterface::USER_TYPE_GUEST) {
-//            throw new GraphQlAuthorizationException(
-//                __(
-//                    'Current customer does not have access to the resource "%1"',
-//                    [\Magento\Customer\Model\Customer::ENTITY]
-//                )
-//            );
-//        }
-//
-//        try {
-//            $data = $this->getCustomerData($context->getUserId());
-//            $result = function () use ($data) {
-//                return !empty($data) ? $data : [];
-//            };
-//            return $this->valueFactory->create($result);
-//        } catch (NoSuchEntityException $exception) {
-//            throw new GraphQlNoSuchEntityException(__($exception->getMessage()));
-//        } catch (LocalizedException $exception) {
-//            throw new GraphQlNoSuchEntityException(__($exception->getMessage()));
-//        }
-//    }
-
-
-//    private function getCustomerData($customerId) : array
-//    {
-//        try {
-//            $customerData = [];
-//            $customerColl = $this->customerFactory->create()->getCollection()
-//                ->addFieldToFilter("entity_id", ["eq"=>$customerId]);
-//            foreach ($customerColl as $customer) {
-//                array_push($customerData, $customer->getData());
-//            }
-//            return isset($customerData[0])?$customerData[0]:[];
-//        } catch (NoSuchEntityException $e) {
-//            return [];
-//        } catch (LocalizedException $e) {
-//            throw new NoSuchEntityException(__($e->getMessage()));
-//        }
-//    }
-
-    /**
      * @param Field $field
      * @param $context
      * @param ResolveInfo $info
