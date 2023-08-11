@@ -1,0 +1,18 @@
+# Copyright © Magento, Inc. All rights reserved.
+# See COPYING.txt for license details.
+
+type Query {
+    getAuthor : [AuthorObj] @resolver(class : "Radicle\\FirstModule\\Model\\Resolver\\Author")  @doc(description : "Get Request for getting list of all authors..")
+}
+
+type AuthorObj @doc(description : "This object defines author object data members.."){
+    id : Int
+    author_name : String
+    description : String
+    email : String
+    store_id : Int
+    time_occured : String
+}
+
+
+
