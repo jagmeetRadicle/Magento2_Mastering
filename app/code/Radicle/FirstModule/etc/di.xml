@@ -23,6 +23,6 @@
         <plugin name="change_success_message_cart" type="Radicle\FirstModule\Model\ChangeSuccessMessage" sortOrder="10"/>
     </type>
 
-    <preference for = "Radicle\FirstModule\Api\Data\AuhtorInterface" type = "Radicle\FirstModule\Model\Author"></preference>
+    <preference for = "Radicle\FirstModule\Api\Data\AuthorInterface" type = "Radicle\FirstModule\Model\Author"></preference>
     <preference for = "Radicle\FirstModule\Api\AuthorRepositoryInterface" type = "Radicle\FirstModule\Model\AuthorRepository"></preference>
 </config>

@@ -1,0 +1,38 @@
+<?php
+// phpcs:disable Magento2.Templates.ThisInTemplate.FoundThis
+
+/**
+ * Category view template
+ *
+ * @var $block \Magento\Catalog\Block\Category\View
+ */
+?>
+<style>
+    .custom-image{
+        width: 200px;
+        height: 200px;
+    }
+</style>
+
+<div class="category-customText">
+    <h1>
+        <span>
+            <?php
+            $_category = $block->getCurrentCategory();
+            echo $_category->getName();
+            ?>
+        </span>
+    </h1>
+    <div>
+        <h4>
+            <?php
+                if ($_customText = $_category->getCustomTextAttribute()) {
+                    echo "Custom Text is :- " . $_customText."<br/>";
+                }
+            ?>
+        </h4>
+        <?php if( $_category->getData('custom_image_attribute') ): ?>
+            <img class="custom-image" src = "<?= $_category->getCustomImageAttribute() ?>" />
+        <?php endif; ?>
+    </div>
+</div>
