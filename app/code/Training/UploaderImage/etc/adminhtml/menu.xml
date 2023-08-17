@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Training_UploaderImage::images_uploader" title="Image Uploader" translate="title"
+             module="Training_UploaderImage" sortOrder="20" resource="Training_UploaderImage::upload" />
+        <add id="Training_UploaderImage::images" title="All Images" translate="title"
+             module="Training_UploaderImage" sortOrder="0" parent="Training_UploaderImage::images_uploader"
+             action="imageuploader/images" resource="Training_UploaderImage::upload" />
+    </menu>
+</config>

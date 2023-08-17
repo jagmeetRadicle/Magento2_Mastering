@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Training\UploaderImage\Api\Data\ImageInterface" type="Training\UploaderImage\Api\Data\Image" />
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="images_list_data_source" xsi:type="string">
+                    Training\UploaderImage\Model\ResourceModel\Image\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Training\UploaderImage\Model\ResourceModel\Image\Grid\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">custom_upload_images</argument>
+            <argument name="resourceModel" xsi:type="string">Training\UploaderImage\Model\ResourceModel\Image
+            </argument>
+        </arguments>
+    </virtualType>
+</config>

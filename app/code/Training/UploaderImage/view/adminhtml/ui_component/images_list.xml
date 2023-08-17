@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">images_list.images_list_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="upload">
+                <url path="*/*/upload"/>
+                <class>primary</class>
+                <label translate="true">Upload Images</label>
+            </button>
+        </buttons>
+        <spinner>images_columns</spinner>
+        <deps>
+            <dep>images_list.images_list_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="images_list_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">image_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="images_list_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>image_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <columns name="images_columns">
+        <column name="image_id" sortOrder="10">
+            <settings>
+                <filter>text</filter>
+                <dataType>text</dataType>
+                <label translate="true">ID</label>
+            </settings>
+        </column>
+        <column name="path" component="Magento_Ui/js/grid/columns/thumbnail" class="Training\UploaderImage\Ui\Component\Columns\Thumbnail">
+            <settings>
+                <hasPreview>0</hasPreview>
+                <addField>false</addField>
+                <label translate="true">Thumbnail</label>
+                <sortable>false</sortable>
+            </settings>
+        </column>
+    </columns>
+</listing>
