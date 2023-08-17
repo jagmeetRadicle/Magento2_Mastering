@@ -56,6 +56,8 @@ class Save extends \Magento\Backend\App\Action {
                         $imageId['tmp_name'] = $imageId['path'] . '/' . $imageId['file'];
                     }
                 }
+
+                //Actual save in db from temporary location.
                 $fileUploader = $this->uploaderFactory->create(['fileId' => $imageId]);
                 $fileUploader->setAllowedExtensions(['jpg', 'jpeg', 'png']);
                 $fileUploader->setAllowRenameFiles(true);
