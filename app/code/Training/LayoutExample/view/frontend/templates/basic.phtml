@@ -8,3 +8,50 @@
 echo $block->test();
 ?>
 <?= $block->getChildHtml("layout_block")?>
+
+<div class="blog-container">
+    <form  id = "form-id" class="blog-form" method="post" action="<?= $this->getUrl('layout/layout/upload'); ?>">
+    Title: <input type="text" name="title" class="required-entry"/>
+    Content: <textarea name="content" class="required-entry validate-no-html-tags"></textarea>
+    File : <input type="file" name="cfile" class="required-entry" />
+    <input type="submit">Submit</input>
+    </form>
+</div>
+
+<script type="text/javascript">
+    require(
+        [
+            'jquery',
+            'Magento_Ui/js/modal/modal',
+            'jquery/ui'
+        ],
+        function(
+            $,
+            modal,
+            jQuery
+        ) {
+            $('.blog-form').submit(function(e) {
+                e.preventDefault();
+                console.log("worked");
+                var formData = new FormData($("#form-id")[0]);
+                    $.ajax({
+                        url: "<?=$this->getUrl('layout/layout/upload');?>",
+                        type: "POST",
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        success: function (response) {
+                            if(response.message){
+                                console.log("Ajax success");
+                                console.log(response);
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                        console.log("not worked");
+                            console.log(xhr.responseText);
+                        }
+                    });
+            });
+        });
+
+</script>
