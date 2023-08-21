@@ -33,3 +33,40 @@
     }
     </script>
 </div>
+
+<div>
+    <h3 style="text-align: center; text-decoration: underline">Radicle Author Information..</h3>
+<?php
+    $helper = $this->helper('Radicle\FirstModule\Helper\Data');
+    $authors = json_decode($helper->getDetails(),true);
+    ?>
+</div>;
+
+<?php if(count($authors) > 0) : ?>
+    <table border="1">
+        <tr>
+            <th><?= __("ID") ?></th>
+            <th><?= __("Author") ?>
+            <th><?= __("Email") ?></th>
+            <th><?= __("Description") ?></th>
+            <th><?= __("Store Id") ?></th>
+            <th><?= __("Time") ?></th>
+            <th><?= __("Customer Id") ?></th>
+        </tr>
+        <?php foreach ($authors as $author): ?>
+<!--            --><?php //echo gettype($author) ?>
+            <tr>
+                <td><?= $author["id"] ?>
+                <td><?= $author["author_name"] ?>
+                <td><?= $author["email"] ?>
+                <td><?= $author["description"] ?>
+                <td><?= $author["store_id"] ?>
+                <td><?= $author["time_occured"] ?>
+                <td><?= $author["customer_id"] ?>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+<?php else: ?>
+    <h1><?= __("You have no authors yet :(") ?></h1>
+<?php endif; ?>
+

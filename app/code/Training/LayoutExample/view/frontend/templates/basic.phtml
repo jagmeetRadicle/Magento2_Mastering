@@ -14,7 +14,7 @@ echo $block->test();
     Title: <input type="text" name="title" class="required-entry"/>
     Content: <textarea name="content" class="required-entry validate-no-html-tags"></textarea>
     File : <input type="file" name="cfile" class="required-entry" />
-    <input type="submit">Submit</input>
+    <input type="submit" onclick="">Submit</input>
     </form>
 </div>
 
@@ -32,7 +32,6 @@ echo $block->test();
         ) {
             $('.blog-form').submit(function(e) {
                 e.preventDefault();
-                console.log("worked");
                 var formData = new FormData($("#form-id")[0]);
                     $.ajax({
                         url: "<?=$this->getUrl('layout/layout/upload');?>",
