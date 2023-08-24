@@ -25,4 +25,17 @@
 
     <preference for = "Radicle\FirstModule\Api\Data\AuthorInterface" type = "Radicle\FirstModule\Model\Author"></preference>
     <preference for = "Radicle\FirstModule\Api\AuthorRepositoryInterface" type = "Radicle\FirstModule\Model\AuthorRepository"></preference>
+
+<!--    <type name="Magento\Checkout\Model\Cart">-->
+<!--        <plugin name="beforeAddtoCart" type = "Radicle\FirstModule\Plugin\Cart" sortOrder="1" />-->
+<!--    </type>-->
+
+<!--    <type name="Magento\Catalog\Model\Product">-->
+<!--        <plugin name="afterProductName" type = "Radicle\FirstModule\Plugin\Product" sortOrder="1" />-->
+<!--    </type>-->
+
+<!--    <type name="Magento\Checkout\Model\Cart">-->
+<!--        <plugin name="aroundAddtoCart" type = "Radicle\FirstModule\Plugin\Cart" sortOrder="1" />-->
+<!--    </type>-->
+
 </config>
