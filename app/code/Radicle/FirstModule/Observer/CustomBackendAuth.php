@@ -1,6 +1,6 @@
 <?php
 
-namespace Observer;
+namespace Radicle\FirstModule\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 
