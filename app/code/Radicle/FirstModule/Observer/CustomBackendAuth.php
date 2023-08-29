@@ -1,8 +1,8 @@
 <?php
 
-namespace Radicle\FirstModule\Observer;
+namespace Observer;
 
-use \Magento\Framework\Event\ObserverInterface;
+use Magento\Framework\Event\ObserverInterface;
 
 class CustomBackendAuth implements ObserverInterface
 {

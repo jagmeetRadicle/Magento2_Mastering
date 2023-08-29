@@ -1,3 +1,7 @@
+<?php
+/** @var Radicle\FirstModule\Block\Cms $block **/
+?>
+
 <h1>KNOCKOUTJS EXAMPLE!!!!!</h1>
 <div id="custom-component" data-bind="scope:'customcomponent'">
     <!-- ko template: getTemplate() --><!-- /ko -->
@@ -40,33 +44,67 @@
     $helper = $this->helper('Radicle\FirstModule\Helper\Data');
     $authors = json_decode($helper->getDetails(),true);
     ?>
-</div>;
+</div>
 
-<?php if(count($authors) > 0) : ?>
-    <table border="1">
-        <tr>
-            <th><?= __("ID") ?></th>
-            <th><?= __("Author") ?>
-            <th><?= __("Email") ?></th>
-            <th><?= __("Description") ?></th>
-            <th><?= __("Store Id") ?></th>
-            <th><?= __("Time") ?></th>
-            <th><?= __("Customer Id") ?></th>
-        </tr>
-        <?php foreach ($authors as $author): ?>
-<!--            --><?php //echo gettype($author) ?>
-            <tr>
-                <td><?= $author["id"] ?>
-                <td><?= $author["author_name"] ?>
-                <td><?= $author["email"] ?>
-                <td><?= $author["description"] ?>
-                <td><?= $author["store_id"] ?>
-                <td><?= $author["time_occured"] ?>
-                <td><?= $author["customer_id"] ?>
-            </tr>
-        <?php endforeach; ?>
-    </table>
-<?php else: ?>
-    <h1><?= __("You have no authors yet :(") ?></h1>
-<?php endif; ?>
+<button id="button" style="text-align: center;margin-left:550px">
+    <span><?= $block->escapeHtml(__('Show Authors')) ?></span>
+</button>
+
+<div id="modal">
+    <div class="modal-body-content">
+        <?php if(count($authors) > 0) : ?>
+            <table border="1">
+                <tr>
+                    <th><?= __("ID") ?></th>
+                    <th><?= __("Author") ?>
+                    <th><?= __("Email") ?></th>
+                    <th><?= __("Description") ?></th>
+                    <th><?= __("Store Id") ?></th>
+                    <th><?= __("Time") ?></th>
+                    <th><?= __("Customer Id") ?></th>
+                </tr>
+                <?php foreach ($authors as $author): ?>
+                    <tr>
+                        <td><?= $author["id"] ?>
+                        <td><?= $author["author_name"] ?>
+                        <td><?= $author["email"] ?>
+                        <td><?= $author["description"] ?>
+                        <td><?= $author["store_id"] ?>
+                        <td><?= $author["time_occured"] ?>
+                        <td><?= $author["customer_id"] ?>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        <?php else: ?>
+            <h1><?= __("You have no authors yet :(") ?></h1>
+        <?php endif; ?>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    require([
+        "jquery",
+        "Magento_Ui/js/modal/modal"     //js class like a component in react.
+    ],function($, modal) {
+
+        var options = {     //props
+            type: 'popup',
+            responsive: true,
+            title: 'Information',
+            buttons: [{
+                text: $.mage.__('Ok'),
+                class: '',
+                click: function () {
+                    this.closeModal();
+                }
+            }]
+        };
+
+        var popup = modal(options, $('#modal'));    //options,targetElementPassed
+        $("#button").click(function() {         //jquery
+            $('#modal').modal('openModal');
+        });
+    });
+</script>
 

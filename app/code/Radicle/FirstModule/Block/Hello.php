@@ -20,4 +20,9 @@ class Hello extends Template{
     public function getAddAuthorPostUrl() {
         return $this->getUrl('helloworld/author/add');
     }
+
+    public function getCacheLifetime()
+    {
+        return null;
+    }
 }

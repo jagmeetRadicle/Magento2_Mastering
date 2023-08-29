@@ -2,7 +2,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <block name = "author_block" class = "Radicle\FirstModule\Block\Hello" template = "Radicle_FirstModule::hello.phtml" />
+            <block name = "author_block" class = "Radicle\FirstModule\Block\Hello" template = "Radicle_FirstModule::hello.phtml" cacheable="false"/>
         </referenceContainer>
     </body>
 </page>
