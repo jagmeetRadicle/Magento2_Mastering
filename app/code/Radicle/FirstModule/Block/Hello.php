@@ -13,6 +13,16 @@ class Hello extends Template{
         $this->collection = $collection;
     }
 
+    protected function _construct()
+    {
+        $this->addData(
+            [
+                'cache_lifetime' => false,
+                'cache_tags' => array('author_block'),
+            ]
+        );
+    }
+
     public function getAllAuthors(){
         return $this->collection;
     }
@@ -21,8 +31,8 @@ class Hello extends Template{
         return $this->getUrl('helloworld/author/add');
     }
 
-    public function getCacheLifetime()
-    {
-        return null;
-    }
+//    public function getCacheLifetime()
+//    {
+//        return null;
+//    }
 }

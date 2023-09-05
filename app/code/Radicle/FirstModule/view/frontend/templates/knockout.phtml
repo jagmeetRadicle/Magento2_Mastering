@@ -50,7 +50,7 @@
     <span><?= $block->escapeHtml(__('Show Authors')) ?></span>
 </button>
 
-<div id="modal">
+<div id="modal" style="display: none">
     <div class="modal-body-content">
         <?php if(count($authors) > 0) : ?>
             <table border="1">
@@ -91,10 +91,11 @@
         var options = {     //props
             type: 'popup',
             responsive: true,
-            title: 'Information',
+            modalTitle : "Authors DataSet",
+            title: 'Author Dataset',
             buttons: [{
                 text: $.mage.__('Ok'),
-                class: '',
+                class: 'OK',
                 click: function () {
                     this.closeModal();
                 }
@@ -104,7 +105,20 @@
         var popup = modal(options, $('#modal'));    //options,targetElementPassed
         $("#button").click(function() {         //jquery
             $('#modal').modal('openModal');
+            $("#modal").css("background-color", "lightgrey");
         });
+
+
+        setTimeout(()=>{
+            console.log("working");
+            $.ajax({
+                url: "https://demo.magento2.com/rest/V1/radicle",
+                method: 'GET',
+                success: function( result ) {
+                    console.log(result);
+                    // $( "#wiki" ).html( "<strong>" + String(result) + "</strong> degrees" );
+                },
+            });
+        },1000)
     });
 </script>
-
