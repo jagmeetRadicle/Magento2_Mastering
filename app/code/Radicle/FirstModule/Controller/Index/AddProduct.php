@@ -21,10 +21,10 @@ public function execute()
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 
         $_product = $objectManager->create('Magento\Catalog\Model\Product');
-        $_product->setName('Sample Product');
+        $_product->setName('Sample1 Product');
         $_product->setTypeId('simple');
         $_product->setAttributeSetId(4);
-        $_product->setSku('sample-SKU');
+        $_product->setSku('sample1-SKU');
         $_product->setWebsiteIds(array(1));
         $_product->setVisibility(4);
         $_product->setPrice(array(1));

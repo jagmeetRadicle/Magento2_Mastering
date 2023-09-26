@@ -3,19 +3,20 @@
 $authors =  $block->getAllAuthors();
 ?>
 
-<form method = "post" name = "myForm" action = "<?php $block->getAddAuthorPostUrl() ?>">
+<!--The above validation alias will invoke JavaScript lib/web/mage/validation/validation.js which generally contains the logic of validation.-->
+<form method = "post" name = "myForm" action = "<?php $block->getAddAuthorPostUrl() ?>"  data-mage-init='{"validation":{}}'>
     <fieldset>
         <div>
             <label for="Author"><?= __("Author") ?></label>
-            <input type = "text" name = "author_name" id="author_name" required/>
+            <input type = "text" name = "author_name" id="author_name" required = "true"/>  <!--Method 1: Use Rule Name As an Attribute-->
         </div>
         <div>
             <label for="email"><?= __("Email") ?></label>
-            <input type = "email" name = "email" id="email" required/>
+            <input class= "input-text required" type = "email" name = "email" id="email" /> <!--Method 2: Use Rule Name As Class Name-->
         </div>
         <div>
             <label for="description"><?= __("Description") ?></label>
-            <input type = "text" name = "description" id="description" required/>
+            <input data-validate='{"required" : true,"custom-min-length" : true}' type = "text" name = "description" id="description"/>   <!--Method 3: Use “Data-Validate” Attribute -->
         </div>
         <div>
             <label for="store"><?= __("Store ID") ?></label>
@@ -64,5 +65,15 @@ $authors =  $block->getAllAuthors();
 <!--</script>-->
 
 
+<!--Method #4 – Set Rule in data-mage-init Attribute of Form Tag-->
+<label class="description"  data-mage-init='{
+    "validation":{
+        "rules": {
+            "description": {
+                "custom-min-length":true
+            }
+        }
+    }
+}'>
 
 

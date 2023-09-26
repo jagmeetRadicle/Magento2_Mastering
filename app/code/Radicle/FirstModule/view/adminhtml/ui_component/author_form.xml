@@ -52,10 +52,16 @@
         </argument>
         <field name="author_name">
             <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
+                <item name="config" xsi:typWorking from home todaye="array">
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="label" xsi:type="string" translate="true">Author Name</item>
                     <item name="formElement" xsi:type="string">input</item>
+
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                        <item name="validate-no-html-tags" xsi:type="boolean">true</item>
+                        <item name="custom-min-length" xsi:type="boolean">true</item>
+                    </item>
                 </item>
             </argument>
         </field>
